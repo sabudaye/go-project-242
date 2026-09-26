@@ -70,7 +70,7 @@ func isHidden(entry os.DirEntry) bool {
 
 func format(size int64, human bool) string {
 	if !human {
-		return fmt.Sprintf("%dB", size)
+		return fmt.Sprintf("%d", size)
 	}
 
 	const (
@@ -84,17 +84,17 @@ func format(size int64, human bool) string {
 
 	switch {
 	case size >= EB:
-		return fmt.Sprintf("%.1fEB", float64(size)/EB)
+		return fmt.Sprintf("%.1fE", float64(size)/EB)
 	case size >= PB:
-		return fmt.Sprintf("%.1fPB", float64(size)/PB)
+		return fmt.Sprintf("%.1fP", float64(size)/PB)
 	case size >= TB:
-		return fmt.Sprintf("%.1fTB", float64(size)/TB)
+		return fmt.Sprintf("%.1fT", float64(size)/TB)
 	case size >= GB:
-		return fmt.Sprintf("%.1fGB", float64(size)/GB)
+		return fmt.Sprintf("%.1fG", float64(size)/GB)
 	case size >= MB:
-		return fmt.Sprintf("%.1fMB", float64(size)/MB)
+		return fmt.Sprintf("%.1fM", float64(size)/MB)
 	case size >= KB:
-		return fmt.Sprintf("%.1fKB", float64(size)/KB)
+		return fmt.Sprintf("%.1fK", float64(size)/KB)
 	default:
 		return fmt.Sprintf("%dB", size)
 	}

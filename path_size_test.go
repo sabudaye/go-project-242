@@ -24,7 +24,31 @@ func TestGetPathSize(t *testing.T) {
 			recursive: false,
 			human:     false,
 			all:       false,
-			expected:  "6B",
+			expected:  "6",
+		},
+		{
+			name:      "directory (no hidden)",
+			path:      filepath.Join("testdata", "dir2"),
+			recursive: false,
+			human:     false,
+			all:       false,
+			expected:  "0",
+		},
+		{
+			name:      "directory include hidden",
+			path:      filepath.Join("testdata", "dir2"),
+			recursive: false,
+			human:     false,
+			all:       true,
+			expected:  "7",
+		},
+		{
+			name:      "directory recursive human all",
+			path:      filepath.Join("testdata", "dir1"),
+			recursive: true,
+			human:     true,
+			all:       true,
+			expected:  "22B",
 		},
 	}
 

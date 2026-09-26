@@ -41,7 +41,16 @@ func main() {
 			},
 		},
 		Action: func(ctx context.Context, cmd *cli.Command) error {
-			path := cmd.Args().Get(0)
+			path := cmd.StringArg("path")
+			if path == "" {
+				err := cli.ShowAppHelp(cmd)
+
+				if err != nil {
+					log.Fatal(err)
+				}
+				return cli.Exit("Requires path argument", 1)
+			}
+
 			res, err := code.GetPathSize(
 				path,
 				cmd.Bool("recursive"),
