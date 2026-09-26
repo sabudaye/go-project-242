@@ -5,7 +5,7 @@ test:
 	go test ./...
 
 lint:
-	$(go env GOPATH)/bin/golangci-lint run
+	$$(go env GOPATH)/bin/golangci-lint run
 
 lint-fix:
-	$(go env GOPATH)/bin/golangci-lint run --fix
+	$$(go env GOPATH)/bin/golangci-lint run --fix
