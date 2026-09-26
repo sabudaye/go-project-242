@@ -25,7 +25,7 @@ func TestGetPathSize(t *testing.T) {
 			recursive: false,
 			human:     false,
 			all:       false,
-			expected:  "6",
+			expected:  "6B",
 		},
 		{
 			name:      "directory (no hidden)",
@@ -33,7 +33,7 @@ func TestGetPathSize(t *testing.T) {
 			recursive: false,
 			human:     false,
 			all:       false,
-			expected:  "0",
+			expected:  "0B",
 		},
 		{
 			name:      "directory include hidden",
@@ -41,7 +41,7 @@ func TestGetPathSize(t *testing.T) {
 			recursive: false,
 			human:     false,
 			all:       true,
-			expected:  "7",
+			expected:  "7B",
 		},
 		{
 			name:      "directory recursive human all",
@@ -70,7 +70,7 @@ func TestGetPathSize(t *testing.T) {
 			recursive: true,
 			human:     false,
 			all:       true,
-			expected:  "8",
+			expected:  "8B",
 		},
 	}
 
