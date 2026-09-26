@@ -47,7 +47,7 @@ func size(path string, recursive bool, all bool) (int64, error) {
 			entryPath := filepath.Join(path, entry.Name())
 			size, err := size(entryPath, recursive, all)
 			if err != nil {
-				log.Printf("%v %v", size, err)
+				log.Printf("%v %v", path, err)
 				continue
 			}
 

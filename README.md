@@ -12,9 +12,6 @@
 - Go
 
 ## Установка
-
-<!-- Опишите установку: клонирование, зависимости, переменные окружения -->
-
 ```bash
 git clone https://github.com/sabudaye/go-project-242.git
 cd go-project-242
@@ -22,8 +19,6 @@ make build
 ```
 
 ## Использование
-
-<!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
 Help:
 ```bash
 bin/hexlet-path-size -h
@@ -31,9 +26,10 @@ bin/hexlet-path-size -h
 
 Usage
 ```bash
-bin/hexlet-path-size -a -r -H .
+./bin/hexlet-path-size testdata/dir1
+./bin/hexlet-path-size -r -H testdata/dir1
+./bin/hexlet-path-size -r -a -H /var/log
 ```
-
 ---
 
 <details>
