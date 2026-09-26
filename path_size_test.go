@@ -15,6 +15,7 @@ func TestGetPathSize(t *testing.T) {
 		human     bool
 		all       bool
 		expected  string
+		error     bool
 	}
 
 	cases := []tc{
@@ -50,14 +51,39 @@ func TestGetPathSize(t *testing.T) {
 			all:       true,
 			expected:  "22B",
 		},
+		{
+			name:      "directory non-recursive human all",
+			path:      filepath.Join("testdata", "dir1"),
+			recursive: false,
+			human:     true,
+			all:       true,
+			expected:  "15B",
+		},
+		{
+			name:  "non-existing path",
+			path:  "/non-existing",
+			error: true,
+		},
+		{
+			name:      "symlink",
+			path:      filepath.Join("testdata", "dir1", "subdir1_sl"),
+			recursive: true,
+			human:     false,
+			all:       true,
+			expected:  "8",
+		},
 	}
 
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
 			size, err := GetPathSize(c.path, c.recursive, c.human, c.all)
 
-			require.NoError(t, err)
-			require.Equal(t, c.expected, size)
+			if !c.error {
+				require.NoError(t, err)
+				require.Equal(t, c.expected, size)
+			} else {
+				require.Error(t, err)
+			}
 		})
 	}
 }

@@ -2,6 +2,7 @@ package code
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -46,7 +47,8 @@ func size(path string, recursive bool, all bool) (int64, error) {
 			entryPath := filepath.Join(path, entry.Name())
 			size, err := size(entryPath, recursive, all)
 			if err != nil {
-				return 0, err
+				log.Printf("%v %v", size, err)
+				continue
 			}
 
 			total += size
@@ -55,7 +57,8 @@ func size(path string, recursive bool, all bool) (int64, error) {
 
 		entryInfo, err := entry.Info()
 		if err != nil {
-			return 0, err
+			log.Printf("%v %v", entry.Name(), err)
+			continue
 		}
 
 		total += entryInfo.Size()

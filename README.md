@@ -18,11 +18,21 @@
 ```bash
 git clone https://github.com/sabudaye/go-project-242.git
 cd go-project-242
+make build
 ```
 
 ## Использование
 
 <!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
+Help:
+```bash
+bin/hexlet-path-size -h
+```
+
+Usage
+```bash
+bin/hexlet-path-size -a -r -H .
+```
 
 ---
 
